@@ -49,8 +49,6 @@ ALTER TABLE public.clientes
 ADD CONSTRAINT UQ_email Unique(email)
 ```
 
-
-
 Insertar datos:
 
 ```
@@ -66,6 +64,64 @@ VALUES(1, 'Juan', 'Pérez', 'Gómez', 'juanperez@mail.com'),
       (8, 'Elena', 'Rodríguez', 'Vázquez', 'elenarodriguez@mail.com');
 ```
 
+```
+INSERT INTO public.ingredientes (
+codIngredientes, nombreIngrediente, codMacronutrientes)
+VALUES (1, 'pollo', 1),
+	   (2, 'arroz', 2),
+	   (3, 'pimiento', 2),
+	   (4, 'manzana', 2),
+	   (5, 'aceite de oliva virgen extra', 3),
+	   (6, 'merluza', 1),
+	   (7, 'tofu', 1),
+	   (8, 'quinoa', 2);
+```
+
+```
+INSERT INTO public.Macronutrientes(
+codMacro, nombre)
+VALUES(1, 'Proteinas'),
+	(2, 'Carbohidratos'),
+	(3, 'Grasas');
+```
+
+```
+INSERT INTO public.recetas(
+codReceta, nombreReceta, elaboracion, codCliente)
+VALUES(1, 'Ensalada de quinoa y pollo','sdfnhksdañklfja', 1),
+	(2, 'Salteado de verduras y tofu','sdfnhksdañklfja', 2),
+	(3, 'Arroz con pollo','sdfnhksdañklfja', 3),
+	(4, 'Tarta de manzana','sdfnhksdañklfja', 4),
+	(5, 'Gazpacho andaluz','sdfnhksdañklfja', 5),
+	(6, 'Lasaña de carne','sdfnhksdañklfja', 6),
+	(7, 'Pisto','sdfnhksdañklfja', 7),
+	(8, 'Crema de calabaza','sdfnhksdañklfja', 8);
+```
+
+```
+INSERT INTO public.listaIngredientes(
+codReceta, codIngredientes, cantidad)
+VALUES (1, 3, 200), (1, 6, 100), (1, 7, 150),
+	(2, 2, 300), (2, 3, 200), (2, 5, 50),
+       (3, 2, 150), (3, 6, 100), (3, 7, 200),
+       (4, 4, 250), (4, 8, 150), (4, 2, 100),
+       (5, 3, 200), (5, 4, 100), (5, 5, 50),
+       (6, 1, 200), (6, 6, 150), (6, 2, 100),
+       (7, 3, 300), (7, 1, 150), (7, 7, 200),
+       (8, 8, 250), (8, 2, 150), (8, 4, 100);
+
+```
+
+```
+SELECT * FROM public.clientes;
+```
+
+```
+UPDATE public.recetas
+	SET elaboracion = "prueba"
+	WHERE idReceta = 1;
+```
+
 Eliminar datos:
 
 ```
@@ -78,7 +134,6 @@ Crear columna:
 <p align="center"> <img src="https://github.com/ERICKBOWSER/pgAdmin4_bbdd/assets/92431188/df6c919f-74bb-4b9f-9093-c7e4a42171ee"> </p>
 
 Definition:
-
 * Data type: se elige el tipo de dato que va a almacenar
 * IMPORTANTE: los string se guardan como character varying
 
